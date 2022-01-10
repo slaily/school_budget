@@ -87,6 +87,10 @@ yarl = "==1.7.2"
 GitPython = "==3.1.24"
 Pygments = "==2.10.0"
 PyYAML = "==6.0"
+jupyter = "*"
+pandas = "*"
+dash = "*"
+matplotlib = "*"
 
 [dev-packages]
 
