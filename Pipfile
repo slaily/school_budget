@@ -91,6 +91,7 @@ jupyter = "*"
 pandas = "*"
 dash = "*"
 matplotlib = "*"
+sklearn = "*"
 
 [dev-packages]
 
