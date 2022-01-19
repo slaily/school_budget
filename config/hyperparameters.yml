@@ -1,0 +1,20 @@
+data:
+  train_path: ./datasets/TrainingData.csv
+  test_path: ./datasets/TestData.csv
+  numeric_columns: 
+    - FTE
+    - Total
+  labels:
+    - Function
+    - Use
+    - Sharing
+    - Reporting
+    - Student_Type
+    - Position_Type
+    - Object_Type
+    - Pre_K
+    - Operating_Status
+split_data:
+  size: 0.2 
+  seed: 123
+  min_count: 5
