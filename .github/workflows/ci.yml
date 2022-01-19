@@ -12,7 +12,7 @@ jobs:
           python-version: '3.10'
       - name: Install pipenv
         run: python -m pip install --upgrade pipenv wheel
+      - name: Install dependencies
+        run: pipenv install
       - name: Train model
-        run: |
-          pipenv install
-          python scripts/train.py -c config/hyperparameters.yml
+        run: python scripts/train.py -c config/hyperparameters.yml
