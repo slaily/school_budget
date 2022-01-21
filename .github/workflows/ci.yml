@@ -20,6 +20,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         run: envsubst < credentials
       - name: Download datasets
-        run: dvc pull
+        run: dvc pull -v
       - name: Train model
         run: python scripts/train.py -c config/hyperparameters.yml
