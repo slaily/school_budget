@@ -14,5 +14,10 @@ jobs:
         run: python -m pip install --upgrade pipenv wheel
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Substitute Credentials
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: envsubst < credentials
       - name: Train model
         run: python scripts/train.py -c config/hyperparameters.yml
