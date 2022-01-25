@@ -128,5 +128,7 @@ if __name__ == "__main__":
         clf.fit(X_train, y_train)
         # Print the accuracy
         print("Accuracy: {}".format(clf.score(X_test, y_test)))
+        with open("metrics.txt", "w") as metrics_file:
+            metrics_file.write("Accuracy: {}".format(clf.score(X_test, y_test)))
         # Persist the trained model
         dump(clf, 'one_vs_rest_classifier_v1.joblib')
