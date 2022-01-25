@@ -36,11 +36,14 @@ jobs:
         id: model-metrics
         run: echo ::set-output name=metrics_file::$(cat metrics.txt)
       - uses: actions/github-script@v5
+        env:
+          MODEL_METRICS: ${{ steps.model-metrics.outputs.metrics_file }}
         with:
           script: |
+            const { MODEL_METRICS } = process.env
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: ${{ steps.model-metrics.outputs.metrics_file }}
+              body: `${MODEL_METRICS}`
             })
