@@ -32,3 +32,16 @@ jobs:
         run: dvc pull
       - name: Train model
         run: python scripts/train.py -c config/hyperparameters.yml
+      - name: Get the Model Metrics
+        id: model-metrics
+        run: echo ::set-output name=metrics_file::$(cat metrics.txt)
+      - name: Output the Model Metrics
+      - uses: actions/github-script@v5
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ${{ steps.model-metrics.outputs.metrics_file }}
+            })
