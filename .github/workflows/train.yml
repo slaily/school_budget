@@ -2,14 +2,6 @@ name: train
 on: issue_comment
 
 jobs:
-  pr_commented:
-    if: ${{ github.event.issue.pull_request }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: See Payload
-        run: echo "$PAYLOAD"
-        env:
-          PAYLOAD: ${{ toJSON(github.event) }}
   train:
     if: contains(github.event.comment.body, '/train')
     runs-on: ubuntu-latest
@@ -37,8 +29,6 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          echo "$AWS_ACCESS_KEY_ID"
-          dvc pull -vv
+        run: dvc pull
       - name: Train model
         run: python scripts/train.py -c config/hyperparameters.yml
