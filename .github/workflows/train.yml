@@ -35,7 +35,6 @@ jobs:
       - name: Get the Model Metrics
         id: model-metrics
         run: echo ::set-output name=metrics_file::$(cat metrics.txt)
-      - name: Output the Model Metrics
       - uses: actions/github-script@v5
         with:
           script: |
