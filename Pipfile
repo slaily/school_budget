@@ -92,6 +92,7 @@ pandas = "*"
 dash = "*"
 matplotlib = "*"
 sklearn = "*"
+dash-bootstrap-components = {extras = ["pandas"], version = "*"}
 
 [dev-packages]
 
