@@ -89,10 +89,8 @@ Pygments = "==2.10.0"
 PyYAML = "==6.0"
 jupyter = "*"
 pandas = "*"
-dash = "*"
 matplotlib = "*"
 sklearn = "*"
-dash-bootstrap-components = {extras = ["pandas"], version = "*"}
 
 [dev-packages]
 
