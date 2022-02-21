@@ -91,6 +91,7 @@ jupyter = "*"
 pandas = "*"
 matplotlib = "*"
 sklearn = "*"
+black = "*"
 
 [dev-packages]
 
