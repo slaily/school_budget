@@ -4,7 +4,7 @@ import numpy as np
 from scipy import sparse
 from sklearn.base import BaseEstimator, TransformerMixin
 
-from .config import NUMERIC_COLUMNS, LABELS
+from .config import NUMERIC_COLUMNS, CATEGORIES
 
 
 class SparseInteractions(BaseEstimator, TransformerMixin):
@@ -50,7 +50,7 @@ class SparseInteractions(BaseEstimator, TransformerMixin):
         return sparse.hstack([X] + out_mat)
 
 
-def combine_text_columns(data_frame, to_drop=NUMERIC_COLUMNS + LABELS):
+def combine_text_columns(data_frame, to_drop=NUMERIC_COLUMNS + CATEGORIES):
     """
     In order to get a bag-of-words representation for all of the text data
     in our DataFrame, you must first convert the text data in each row of the 
